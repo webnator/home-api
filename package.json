@@ -1,0 +1,43 @@
+{
+  "name": "HOME-DISPATCHER",
+  "version": "0.0.1",
+  "description": "Generic backend Hapi App generated with the hapi-rest generator",
+  "main": "server",
+  "dependencies": {
+    "crypto": "0.0.3",
+    "denizen-lib-log": "^2",
+    "denizen-lib-request": "^1.0.10",
+    "denizen-lib-server": "^1.0.0",
+    "hapi": "11.x.x",
+    "hapi-mongodb": "4.1.0",
+    "joi": "9.0.4",
+    "lodash": "4.17.3",
+    "mqtt": "^2.3.0",
+    "uuid": "2.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^0.10.4",
+    "gulp-jasmine": "^2.4.0",
+    "gulp-jsdoc3": "^0.3.0",
+    "gulp-jshint": "^2.0.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-process-env": "0.0.1",
+    "gulp-raml2html": "^0.2.0",
+    "isparta": "^4.0.0",
+    "jasmine-reporters": "^2.2.0",
+    "plato": "^1.7.0",
+    "gulp-shell": "0.5.2",
+    "jasmine-node": "1.14.5",
+    "jshint": "2.x",
+    "rewire": "2.5.1"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "start": "node server",
+    "test": "jasmine-node tests --config HOME_DISPATCHER test --color"
+  },
+  "private": true
+}
