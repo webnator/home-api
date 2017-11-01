@@ -1,6 +1,6 @@
 'use strict';
 
-let mqtt = require('mqtt');
+let mqtt = require('async-mqtt');
 let config = require('./../../../config/environment/index');
 
 class Queue {
@@ -42,7 +42,25 @@ class Queue {
 
   setHandler() {
     this.client.on('message', (topic, message) => {
-      this._consumers[topic](message);
+      if (this._consumers[topic]) {
+        let stringMessage = { payload: JSON.parse(message.toString()) };
+        this._consumers[topic](JSON.stringify(stringMessage));
+      } else {
+        console.log('Unhandled message:', message.toString(), 'in topic', topic);
+      }
+    });
+  }
+
+  async publishAndWaitResponse({subscribeTopic, publishTopic, payload, callback}) {
+    await this.client.subscribe(subscribeTopic);
+    await this.client.publish(publishTopic, payload);
+
+
+    return this.client.on('message', (topic, message) => {
+      if (topic === subscribeTopic) {
+        this.client.unsubscribe(subscribeTopic);
+        return callback(message);
+      }
     });
   }
 

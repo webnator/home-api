@@ -1,15 +1,15 @@
 'use strict';
 
-const tvController = require('./controllers/tvController');
+const temperatureController = require('./controllers/temperatureController');
 
 module.exports = function(server) {
   server.route({
-    topic: 'home/tv/play',
-    handler: tvController.handlePlay
+    topic: 'tele/living_room/SENSOR',
+    handler: temperatureController.handleTemperature
   });
 
   server.route({
-    topic: 'home/tv/reset',
-    handler: tvController.resetTv
+    topic: 'tele/pet_house/SENSOR',
+    handler: temperatureController.handleTemperature
   });
 };

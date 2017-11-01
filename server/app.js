@@ -29,7 +29,7 @@ var init = function () {
     server.register(
       [
         {register: require('./routes')},
-        //{register: require('hapi-mongodb'), options: config.mongoSettings}
+        {register: require('hapi-mongodb'), options: config.mongoSettings}
       ],
       setOptions(),
       function (err) {
@@ -40,7 +40,7 @@ var init = function () {
           if (err) {
             return reject(err);
           }
-          //GlobalModule.setConfigValue('db', server.plugins['hapi-mongodb'].db);
+          GlobalModule.setConfigValue('db', server.plugins['hapi-mongodb'].db);
           return resolve(server);
         });
       }
@@ -50,7 +50,7 @@ var init = function () {
 
 var stopServer = function() {
   return new Promise((resolve, reject) => {
-    //GlobalModule.getConfigValue('db').close();
+    GlobalModule.getConfigValue('db').close();
     server.stop(function (err) {
       if (err) {
         return reject(err);

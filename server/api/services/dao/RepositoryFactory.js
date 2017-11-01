@@ -1,21 +1,20 @@
 'use strict';
 
-let REPOSITORIES = {
-
-};
+let REPOSITORIES = {};
 
 class RepositoryFactory {
-	constructor() { }
+  constructor() {
+  }
 
-	/**
-	 * Get a repository from the RepositoryFactory
-	 * @public
-	 * @param {Object} repository - The repository name
-	 * @return {Object} result - The instance repository
-	 */
-	static getRepository (repository) {
-		return REPOSITORIES[repository];
-	}
+  /**
+   * Get a repository from the RepositoryFactory
+   * @public
+   * @param {Object} repository - The repository name
+   * @return {Object} result - The instance repository
+   */
+  static getRepository(repository) {
+    return REPOSITORIES[repository];
+  }
 
 }
 

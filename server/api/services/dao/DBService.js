@@ -175,7 +175,6 @@ class DBService {
    * @param {Object} data - The container object
    * @param {Object} data.query - The object with the mongo query
    * @return {Promise}
-   * @return {Array} data.query.result - The array of entities returned by the DDBB
    */
   find(data) {
     return new Promise((resolve, reject) => {
